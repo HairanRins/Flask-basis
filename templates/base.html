@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Gestion des livres</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Gestion des livres</h1>
+        <div class="flash-message">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-success">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="mb-4">
+            <a href="{{ url_for('add_book') }}" class="btn btn-primary">Ajouter un livre</a>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
